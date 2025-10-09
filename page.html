@@ -1,49 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Registration Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Registration Form</title>
+  <style>
+    /* Overall page styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Form container */
+    form {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #66a6ff;
+      box-shadow: 0 0 5px rgba(102, 166, 255, 0.6);
+      outline: none;
+    }
+
+    ol {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    ol li {
+      margin: 5px 0;
+      color: #333;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #764ba2, #667eea);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Add a back link */
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #764ba2;
+    }
+  </style>
 </head>
 <body>
-    <h2>User Registration Form</h2>
 
-    <!-- Using an unordered list to group form fields -->
-    <form>
-        <ul style="list-style-type: square;">
-            <li>
-                <label for="name">Full Name:</label><br>
-                <input type="text" id="name" name="name" required>
-            </li>
-            <li>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required>
-            </li>
-            <li>
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" required>
-            </li>
-            <li>
-                <label for="gender">Gender:</label><br>
-                <ol type="a">
-                    <li><input type="radio" name="gender" value="Male"> Male</li>
-                    <li><input type="radio" name="gender" value="Female"> Female</li>
-                    <li><input type="radio" name="gender" value="Other"> Other</li>
-                </ol>
-            </li>
-            <li>
-                <label for="course">Select Your Course:</label><br>
-                <ol>
-                    <li><input type="checkbox" name="course" value="HTML"> HTML</li>
-                    <li><input type="checkbox" name="course" value="CSS"> CSS</li>
-                    <li><input type="checkbox" name="course" value="JavaScript"> JavaScript</li>
-                </ol>
-            </li>
-            <li>
-                <button type="submit">Register</button>
-            </li>
-        </ul>
-    </form>
+  <form>
+    <h2>User Registration</h2>
+    <ul>
+      <li>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+      </li>
+      <li>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </li>
+      <li>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </li>
+      <li>
+        <label>Gender:</label>
+        <ol type="a">
+          <li><input type="radio" name="gender" value="Male"> Male</li>
+          <li><input type="radio" name="gender" value="Female"> Female</li>
+          <li><input type="radio" name="gender" value="Other"> Other</li>
+        </ol>
+      </li>
+      <li>
+        <label>Select Your Course:</label>
+        <ol>
+          <li><input type="checkbox" name="course" value="HTML"> HTML</li>
+          <li><input type="checkbox" name="course" value="CSS"> CSS</li>
+          <li><input type="checkbox" name="course" value="JavaScript"> JavaScript</li>
+        </ol>
+      </li>
+      <li>
+        <button type="submit">Register</button>
+      </li>
+    </ul>
+
+    <a href="index.html" class="back-link">⬅ Back to Home</a>
+  </form>
 
 </body>
 </html>
