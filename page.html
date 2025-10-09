@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Registration Form</title>
+</head>
+<body>
+    <h2>User Registration Form</h2>
+
+    <!-- Using an unordered list to group form fields -->
+    <form>
+        <ul style="list-style-type: square;">
+            <li>
+                <label for="name">Full Name:</label><br>
+                <input type="text" id="name" name="name" required>
+            </li>
+            <li>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required>
+            </li>
+            <li>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required>
+            </li>
+            <li>
+                <label for="gender">Gender:</label><br>
+                <ol type="a">
+                    <li><input type="radio" name="gender" value="Male"> Male</li>
+                    <li><input type="radio" name="gender" value="Female"> Female</li>
+                    <li><input type="radio" name="gender" value="Other"> Other</li>
+                </ol>
+            </li>
+            <li>
+                <label for="course">Select Your Course:</label><br>
+                <ol>
+                    <li><input type="checkbox" name="course" value="HTML"> HTML</li>
+                    <li><input type="checkbox" name="course" value="CSS"> CSS</li>
+                    <li><input type="checkbox" name="course" value="JavaScript"> JavaScript</li>
+                </ol>
+            </li>
+            <li>
+                <button type="submit">Register</button>
+            </li>
+        </ul>
+    </form>
+
+</body>
+</html>
