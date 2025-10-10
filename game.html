@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+</head>
+<body style="text-align:center; font-family:Arial; margin-top:50px; font-size:large">
+
+  <h1>Rock, Paper, Scissors Game 😎🎶</h1>
+  <p>Choose one:</p>
+
+  <button onclick="playGame('rock')">🪨 Rock</button>
+  <button onclick="playGame('paper')">📄 Paper</button>
+  <button onclick="playGame('scissors')">✂️ Scissors</button>
+
+  <h2 id="userChoice"></h2>
+  <h2 id="computerChoice"></h2>
+  <h2 id="result"></h2>
+
+  <script>
+    function playGame(userChoice) {
+      const choices = ["rock", "paper", "scissors"];
+      const computerChoice = choices[Math.floor(Math.random() * 3)];
+      document.getElementById("userChoice").innerHTML = "You chose: " + userChoice;
+      document.getElementById("computerChoice").innerHTML = "Computer chose: " + computerChoice;
+      let result = "";
+
+      if (userChoice === computerChoice) {
+        result = "It's a Draw! 🤝";
+      } else if (
+        (userChoice === "rock" && computerChoice === "scissors") ||
+        (userChoice === "paper" && computerChoice === "rock") ||
+        (userChoice === "scissors" && computerChoice === "paper")
+      ) {
+        result = "You Win! 🎉";
+      } else {
+        result = "You Lose! 😢";
+      }
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+<a href="index.html">Back to Home</a>
+</body>
+</html>

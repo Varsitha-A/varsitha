@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Grid Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: black;
+      margin: 10px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #ffcc00;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .grid-container {
+      display: grid;
+      width: 90%;
+      max-width: 900px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 150px 250px 150px 150px;
+      gap: 20px;
+    }
+
+    .grid-item {
+      background-color: #262626;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: 0.3s;
+    }
+
+    
+    .item1 {
+      grid-column: 1 / 4; 
+      grid-row: 1;
+      background-color: silver;
+    }
+
+    .item2 {
+      grid-column: 1; 
+      grid-row: 2 / 4;
+      background-color: silver;
+    }
+
+    .item3 {
+      grid-column: 2 / 4; 
+      grid-row: 2; 
+      background-color: silver;
+    }
+
+    .item4 {
+      grid-column: 2; 
+      grid-row: 3; 
+      background-color: silver;
+    }
+
+    .item5 {
+      grid-column: 3; 
+      grid-row: 3; 
+      background-color: silver;
+    }
+
+    .item6 {
+      grid-column: 1 / 4; 
+      grid-row: 4; 
+      background-color: silver;
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom 6-Grid Layout</h1>
+
+  <div class="grid-container">
+    <div class="grid-item item1">1</div>
+    <div class="grid-item item2">2</div>
+    <div class="grid-item item3">3</div>
+    <div class="grid-item item4">4</div>
+    <div class="grid-item item5">5</div>
+    <div class="grid-item item6">6</div>
+  </div>
+<a href="index.html">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple DOM Example</title>
+</head>
+<body>
+
+  <h1 id="title">Welcome to My Page!❤️</h1>
+  <p id="message">Click the button below to change this text.</p>
+
+  <button onclick="changeContent()">Click Me</button>
+
+  <script>
+    function changeContent() {
+      document.getElementById("title").style.color = "blue";
+      document.getElementById("message").innerHTML = "The text has been changed using JavaScript DOM!💌";
+      document.body.style.backgroundColor = "#f0f0f0";
+    }
+  </script>
+<a href="index.html">Back to Home</a>
+</body>
+</html>
