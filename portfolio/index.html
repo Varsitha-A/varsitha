@@ -5,7 +5,199 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Varsitha — Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffb6c1 0%, #e6ccff 50%, #f3c5d0 100%);
+      color: #2c2c2c;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header, .footer {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-bubble {
+      background: linear-gradient(45deg, #ff69b4, #b19cd9);
+      color: white;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .brand-text h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: #4a148c;
+    }
+
+    .brand-text small {
+      font-size: 0.8rem;
+      color: #6a1b9a;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #4a148c;
+      font-weight: 600;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #ff69b4;
+      border-bottom: 2px solid #ff69b4;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 60px;
+      gap: 40px;
+    }
+
+    .hero-left {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .title {
+      font-size: 2rem;
+      color: #4a148c;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #ff69b4, #b19cd9);
+      color: white;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn.secondary {
+      background: white;
+      color: #6a1b9a;
+      border: 2px solid #b19cd9;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.8);
+      color: #6a1b9a;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .k-card {
+      background: rgba(255,255,255,0.9);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 280px;
+      transition: transform 0.3s ease;
+    }
+
+    .k-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .avatar {
+      background: linear-gradient(45deg, #ff69b4, #b19cd9);
+      color: white;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 auto 15px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: auto;
+      padding: 20px 0;
+      color: #4a148c;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -25,18 +217,13 @@
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
-      <button class="hamburger" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      </button>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
       <div class="hero-left">
-        <h2 class="title">Hi — I’m <span style="color:var(--pink)">Varsitha</span></h2>
+        <h2 class="title">Hi — I’m <span style="color:#ff69b4">Varsitha</span></h2>
         <p class="subtitle">I build modern, accessible & delightful websites and apps with attention to detail, performance and design.</p>
         <div class="cta-row">
           <a class="btn" href="projects.html">View Projects</a>
@@ -52,9 +239,9 @@
       <div class="hero-right">
         <div class="k-card">
           <div class="avatar">V</div>
-          <h3 style="margin:0;color:var(--lav)">Varsitha</h3>
+          <h3 style="margin:0;color:#6a1b9a">Varsitha</h3>
           <p class="meta" style="margin:4px 0 12px">Front-end Developer • Designer</p>
-          <p class="meta" style="font-size:0.92rem;color:var(--muted)">Available for freelance & full-time roles. Based in Tamil Nadu, India.</p>
+          <p class="meta" style="font-size:0.92rem;color:#555">Available for freelance & full-time roles. Based in Tamil Nadu, India.</p>
           <div style="margin-top:14px" class="center">
             <a class="btn" href="contact.html">Hire Me</a>
           </div>
@@ -64,7 +251,8 @@
   </main>
 
   <footer class="footer container">
-    © 2025 Varsitha • Crafted with care
+    © Portfolio • Crafted with love 💜
+   
   </footer>
 </body>
-</html>
+</html> 

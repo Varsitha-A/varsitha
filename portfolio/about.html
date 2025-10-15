@@ -5,11 +5,150 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Varsitha — About</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffb6c1 0%, #e6ccff 50%, #f3c5d0 100%);
+      color: #2c2c2c;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header, .footer {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-bubble {
+      background: linear-gradient(45deg, #ff69b4, #b19cd9);
+      color: white;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .brand-text h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: #4a148c;
+    }
+
+    .brand-text small {
+      font-size: 0.8rem;
+      color: #6a1b9a;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #4a148c;
+      font-weight: 600;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #ff69b4;
+      border-bottom: 2px solid #ff69b4;
+    }
+
+    main {
+      padding: 40px 0;
+      flex: 1;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    h2, h3 {
+      color: #4a148c;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      line-height: 1.7;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+
+    .skill-card {
+      background: rgba(255,255,255,0.8);
+      padding: 10px 15px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    a {
+      text-decoration: none;
+      color: #ff69b4;
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: auto;
+      padding: 20px 0;
+      color: #4a148c;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
-    <div class="container header-inner">
+    <div class="container">
       <a class="brand" href="index.html">
         <div class="logo-bubble">V</div>
         <div class="brand-text">
@@ -28,21 +167,19 @@
     </div>
   </header>
 
-  <main class="container about-main compact">
+  <main class="container">
     <section class="section about-intro">
-      <h2 class="title">About Me</h2>
-      <p class="subtitle">
-        Hi! I’m <span style="color: var(--pink); font-weight: 600;">Varsitha</span> — a creative and detail-oriented web developer 
-        from Tamil Nadu, India. I specialize in building modern, responsive, and user-friendly websites that combine clean 
-        design with smooth functionality. I love turning ideas into interactive experiences that people enjoy using.
-      </p>
+      <h2>About Me</h2>
+      <p>Hi! I’m <span style="color:#ff69b4;font-weight:600;">Varsitha</span> — a creative and detail-oriented web developer 
+      from Trichy,Tamil Nadu, India. I specialize in building modern, responsive, and user-friendly websites that combine clean 
+      design with smooth functionality. I love turning ideas into interactive experiences that people enjoy using.</p>
     </section>
 
     <section class="section about-quick">
       <div class="about-grid">
         <div>
-          <h3 style="color:var(--lav)">Quick Facts</h3>
-          <ul style="line-height:1.7;">
+          <h3>Quick Facts</h3>
+          <ul>
             <li>💻 Passionate about front-end and UI/UX development</li>
             <li>🎯 Interested in full-stack & cross-platform apps</li>
             <li>🚀 Constant learner with hands-on project experience</li>
@@ -50,19 +187,17 @@
           </ul>
         </div>
         <div>
-          <h3 style="color:var(--lav)">Education</h3>
-          <p>
-            <strong>B.E. Computer Science and Engineering</strong><br>
-            <em>Sri Shakthi Institute of Engineering and Technology, Coimbatore</em><br>
-            (2021 – 2025)
-          </p>
+          <h3>Education</h3>
+          <p><strong>B.E. Computer Science and Engineering</strong><br>
+          <em>Sri Shakthi Institute of Engineering and Technology, Coimbatore</em><br>
+          (2023 – 2027)</p>
           <p>Focused on software design, data structures, and mobile development.</p>
         </div>
       </div>
     </section>
 
     <section class="section skills-compact">
-      <h3 style="color:var(--lav)">Skills</h3>
+      <h3>Skills</h3>
       <div class="skills-grid">
         <div class="skill-card">HTML / CSS / JS</div>
         <div class="skill-card">React.js</div>
@@ -76,8 +211,8 @@
     </section>
 
     <section class="section achievements">
-      <h3 style="color:var(--lav)">Highlights</h3>
-      <ul style="line-height:1.7;">
+      <h3>Highlights</h3>
+      <ul>
         <li>🏆 Created a <strong>Handloom eCommerce Website</strong> using React & Bootstrap.</li>
         <li>📱 Built a <strong>Flutter Alarm App</strong> with background services and notifications.</li>
         <li>🌐 Developed a <strong>Tamil Nadu Tourism Portal</strong> with booking and feedback features.</li>
@@ -86,26 +221,20 @@
     </section>
 
     <section class="section">
-      <h3 style="color:var(--lav)">Interests</h3>
-      <p>
-        Apart from coding, I love baking 🍰, sketching 🎨, exploring tech innovations, and creating minimal digital designs. 
-        I also enjoy experimenting with new tools that improve workflow and productivity.
-      </p>
+      <h3>Interests</h3>
+      <p>Apart from coding, I love baking 🍰, sketching 🎨, exploring tech innovations, and creating minimal digital designs. 
+      I also enjoy experimenting with new tools that improve workflow and productivity.</p>
     </section>
 
     <section class="section">
-      <h3 style="color:var(--lav)">Let’s Connect</h3>
-      <p>
-        I’m always excited to collaborate on creative projects or internships that challenge me to grow. 
-        You can <a href="contact.html" style="color:var(--pink); font-weight:600;">reach out here</a> — let’s build something amazing together!
-      </p>
+      <h3>Let’s Connect</h3>
+      <p>I’m always excited to collaborate on creative projects or internships that challenge me to grow. 
+      You can <a href="contact.html">reach out here</a> — let’s build something amazing together!</p>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      © 2025 Varsitha • Crafted with care
-    </div>
+    © Portfolio • Crafted with love 💜
   </footer>
 </body>
 </html>

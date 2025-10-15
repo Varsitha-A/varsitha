@@ -5,7 +5,131 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Varsitha — Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffb6c1 0%, #e6ccff 50%, #f3c5d0 100%);
+      color: #2c2c2c;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header, .footer {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-bubble {
+      background: linear-gradient(45deg, #ff69b4, #b19cd9);
+      color: white;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .brand-text h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: #4a148c;
+    }
+
+    .brand-text small {
+      font-size: 0.8rem;
+      color: #6a1b9a;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #4a148c;
+      font-weight: 600;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #ff69b4;
+      border-bottom: 2px solid #ff69b4;
+    }
+
+    .section {
+      margin-top: 60px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      color: #4a148c;
+      margin-bottom: 30px;
+    }
+
+    .card-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .project {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .project h3 {
+      color: #6a1b9a;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: auto;
+      padding: 20px 0;
+      color: #4a148c;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -25,11 +149,6 @@
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
-      <button class="hamburger" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      </button>
     </div>
   </header>
 
@@ -42,19 +161,19 @@
           <p>Responsive e-shop showcasing traditional handloom weaves with cart & checkout prototypes.</p>
         </div>
         <div class="project">
-          <h3>Flutter Alarm App</h3>
-          <p>Reliable background alarms with custom audio and scheduling for Android devices.</p>
+          <h3>WakeMaster</h3>
+          <p>Reliable background alarms with custom audio, puzzles, and math challenges for Android devices.</p>
         </div>
         <div class="project">
           <h3>Ancient Tamil Decoding</h3>
-          <p>This project aims to decode ancient Tamil letters found in sculptures and monuments, converting them into modern Tamil script using LLM-based models. It helps preserve and understand the cultural heritage and linguistic evolution of Tamil civilization more deeply.</p>
+          <p>LLM-powered model to decode ancient Tamil inscriptions and convert them into modern Tamil script.</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer container">
-    © 2025 Varsitha • Crafted with care
+   © Portfolio • Crafted with love 💜
   </footer>
 </body>
 </html>
