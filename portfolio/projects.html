@@ -6,134 +6,169 @@
   <title>Varsitha — Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --dark: #231F20;
+      --teal: #014d4e;
+      --light: #f5f5f5;
+      --muted: #a2cfcf;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffb6c1 0%, #e6ccff 50%, #f3c5d0 100%);
-      color: #2c2c2c;
+      background: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      animation: fadeInBody 1.2s ease-in;
     }
 
-    .header, .footer {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    .header {
+      background: rgba(35, 31, 32, 0.95);
+      border-bottom: 2px solid var(--teal);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: slideDown 1.2s ease;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-    .brand {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
+    .brand { text-decoration: none; display: flex; align-items: center; gap: 12px; }
     .logo-bubble {
-      background: linear-gradient(45deg, #ff69b4, #b19cd9);
-      color: white;
-      width: 45px;
-      height: 45px;
+      background: var(--teal);
+      color: var(--dark);
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       font-weight: 700;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      font-size: 1.3rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: float 3s ease-in-out infinite;
     }
-
     .brand-text h1 {
       font-size: 1.5rem;
       margin: 0;
-      color: #4a148c;
+      background: linear-gradient(90deg, var(--teal), #028b86);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s infinite linear;
     }
+    .brand-text small { font-size: 0.8rem; color: var(--muted); }
 
-    .brand-text small {
-      font-size: 0.8rem;
-      color: #6a1b9a;
-    }
+    .nav { display: flex; justify-content: flex-end; align-items: center; }
+    .nav-list { list-style: none; display: flex; gap: 25px; }
+    .nav-link { text-decoration: none; color: var(--light); font-weight: 600; position: relative; transition: all 0.4s ease; }
+    .nav-link::after { content: ""; position: absolute; left: 0; bottom: -5px; width: 0%; height: 2px; background: var(--teal); transition: width 0.4s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: var(--teal); }
 
-    .nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .nav-list {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: #4a148c;
-      font-weight: 600;
-      transition: color 0.3s ease, border-bottom 0.3s ease;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: #ff69b4;
-      border-bottom: 2px solid #ff69b4;
-    }
-
-    .section {
-      margin-top: 60px;
-    }
-
+    .section { margin-top: 80px; text-align: center; animation: fadeUp 1.5s ease forwards; }
     .title {
-      text-align: center;
-      font-size: 2rem;
-      color: #4a148c;
-      margin-bottom: 30px;
+      font-size: 2.3rem;
+      margin-bottom: 40px;
+      position: relative;
+      background: linear-gradient(90deg, var(--teal), #028b86, var(--teal));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 300%;
+      animation: gradientMove 6s infinite alternate;
+    }
+    .title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--teal);
+      margin: 12px auto;
+      border-radius: 2px;
+      animation: expandLine 1.5s ease;
     }
 
-    .card-row {
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding-bottom: 100px;
+      animation: fadeUp 1.5s ease 0.5s forwards;
     }
 
-    .project {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: 0.4s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--teal);
+      transform: translateY(40px);
+      opacity: 0;
+      animation: cardFadeUp 1s forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
     }
 
-    .project:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    .project-card .icon {
+      font-size: 4rem;
+      color: var(--teal);
+      animation: float 3s ease-in-out infinite;
     }
 
-    .project h3 {
-      color: #6a1b9a;
+    .project-card:nth-child(1) { animation-delay: 0.4s; }
+    .project-card:nth-child(2) { animation-delay: 0.7s; }
+    .project-card:nth-child(3) { animation-delay: 1s; }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: radial-gradient(circle, rgba(1,77,78,0.2), transparent 60%);
+      transform: rotate(45deg);
+      transition: all 1s ease;
+      opacity: 0;
+    }
+    .project-card:hover::before { opacity: 1; top: -50%; left: -50%; }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(1,77,78,0.4);
+      border-color: #028b86;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: auto;
-      padding: 20px 0;
-      color: #4a148c;
-      font-weight: 600;
-    }
+    .project-card h3 { color: var(--teal); margin-bottom: 8px; font-size: 1.3rem; }
+    .project-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; text-align: center; }
+
+    .footer { text-align: center; padding: 20px; color: var(--muted); font-weight: 600; border-top: 1px solid var(--teal); background: rgba(35, 31, 32, 0.95); margin-top: auto; animation: fadeUp 1.5s ease; }
+
+    @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideDown { from { transform: translateY(-100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-8px); } }
+    @keyframes shimmer { 0%{ background-position:0%; } 100%{ background-position:100%; } }
+    @keyframes gradientMove { 0%{ background-position:0% 50%; } 100%{ background-position:100% 50%; } }
+    @keyframes expandLine { from{ width:0; opacity:0; } to{ width:80px; opacity:1; } }
+    @keyframes cardFadeUp { to{ transform: translateY(0); opacity:1; } }
   </style>
 </head>
+
 <body>
   <header class="header">
-    <div class="container">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
       <a class="brand" href="index.html">
         <div class="logo-bubble">V</div>
         <div class="brand-text">
@@ -154,26 +189,31 @@
 
   <main class="container">
     <section class="section">
-      <h2 class="title">Projects</h2>
-      <div class="card-row">
-        <div class="project">
+      <h2 class="title">My Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="icon">🧵</div>
           <h3>Handloom eCommerce</h3>
-          <p>Responsive e-shop showcasing traditional handloom weaves with cart & checkout prototypes.</p>
+          <p>A vibrant e-shop showcasing traditional handloom collections with smooth navigation and cart simulation built using React and Bootstrap.</p>
         </div>
-        <div class="project">
-          <h3>WakeMaster</h3>
-          <p>Reliable background alarms with custom audio, puzzles, and math challenges for Android devices.</p>
+
+        <div class="project-card">
+          <div class="icon">⏰</div>
+          <h3>WakeMaster Alarm App</h3>
+          <p>Custom Flutter alarm app featuring background triggering, puzzles, and music integration ensuring you <i>never miss a morning!</i></p>
         </div>
-        <div class="project">
-          <h3>Ancient Tamil Decoding</h3>
-          <p>LLM-powered model to decode ancient Tamil inscriptions and convert them into modern Tamil script.</p>
+
+        <div class="project-card">
+          <div class="icon">📜</div>
+          <h3>Ancient Tamil Decoder</h3>
+          <p>AI-powered script converter to decode Vatteluttu Tamil into modern Tamil characters using deep learning and linguistic models.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer container">
-   © Portfolio • Crafted with love 💜
+  <footer class="footer">
+    © 2025 Varsitha • Designed with Care
   </footer>
 </body>
 </html>

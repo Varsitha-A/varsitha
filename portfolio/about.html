@@ -6,149 +6,123 @@
   <title>Varsitha — About</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffb6c1 0%, #e6ccff 50%, #f3c5d0 100%);
-      color: #2c2c2c;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background: linear-gradient(135deg, #231F20, #003c36);
+      color: #f5f5f5;
+      overflow-x: hidden;
+      position: relative;
     }
-
-    .header, .footer {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      z-index: 0;
+      filter: blur(40px);
+      animation: float 12s infinite ease-in-out alternate;
     }
-
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
+    .shape:nth-child(1) { width: 200px; height: 200px; background: #00796B; top: 15%; left: 10%; animation-delay: 0s; }
+    .shape:nth-child(2) { width: 250px; height: 250px; background: #009688; bottom: 10%; right: 15%; animation-delay: 2s; }
+    .shape:nth-child(3) { width: 150px; height: 150px; background: #004d40; top: 60%; left: 50%; animation-delay: 4s; }
+    @keyframes float { from { transform: translateY(0px) rotate(0deg); } to { transform: translateY(-40px) rotate(30deg); } }
+    .header {
+      background: rgba(35, 31, 32, 0.85);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 2px solid #00796B;
     }
-
-    .brand {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 20px; position: relative; z-index: 2; }
+    .brand { text-decoration: none; display: flex; align-items: center; gap: 12px; }
     .logo-bubble {
-      background: linear-gradient(45deg, #ff69b4, #b19cd9);
-      color: white;
-      width: 45px;
-      height: 45px;
+      background: #00796B;
+      color: #231F20;
+      width: 50px; height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       font-weight: 700;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      font-size: 1.3rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
-
-    .brand-text h1 {
-      font-size: 1.5rem;
-      margin: 0;
-      color: #4a148c;
-    }
-
-    .brand-text small {
-      font-size: 0.8rem;
-      color: #6a1b9a;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .nav-list {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: #4a148c;
-      font-weight: 600;
-      transition: color 0.3s ease, border-bottom 0.3s ease;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: #ff69b4;
-      border-bottom: 2px solid #ff69b4;
-    }
-
-    main {
-      padding: 40px 0;
-      flex: 1;
-    }
-
-    .section {
-      margin-bottom: 40px;
-    }
-
-    h2, h3 {
-      color: #4a148c;
-      margin-bottom: 15px;
-    }
-
-    p, li {
-      line-height: 1.7;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 15px;
-    }
-
-    .skill-card {
-      background: rgba(255,255,255,0.8);
-      padding: 10px 15px;
-      border-radius: 12px;
+    .brand-text h1 { font-size: 1.6rem; margin: 0; color: #00796B; }
+    .brand-text small { font-size: 0.8rem; color: #66b2a6; }
+    .nav { display: flex; justify-content: flex-end; align-items: center; }
+    .nav-list { list-style: none; display: flex; gap: 25px; margin: 0; }
+    .nav-link { text-decoration: none; color: #f5f5f5; font-weight: 600; transition: 0.3s; }
+    .nav-link:hover, .nav-link.active { color: #00796B; border-bottom: 2px solid #00796B; }
+    .about-intro { margin-top: 80px; text-align: center; animation: fadeIn 1.2s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .about-intro h2 { font-size: 2.5rem; color: #00796B; margin-bottom: 15px; }
+    .about-intro p { max-width: 750px; margin: 0 auto; line-height: 1.8; font-size: 1.05rem; color: #d9d9d9; }
+    .info-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
+    .info-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 25px;
       text-align: center;
-      font-weight: 600;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border: 1px solid #00796B;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeUp 1.3s ease;
     }
-
-    a {
-      text-decoration: none;
-      color: #ff69b4;
+    .info-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,121,107,0.4); border-color: #009688; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    .info-card h3 { color: #66b2a6; font-size: 1.4rem; margin-bottom: 15px; }
+    .info-card p, .info-card ul { line-height: 1.7; font-size: 0.95rem; text-align: left; color: #dcdcdc; }
+    .info-card ul { list-style: none; padding-left: 0; }
+    .info-card li::before { content: "💠 "; color: #00796B; }
+    .skills-section { margin-top: 80px; text-align: center; }
+    .skills-section h3 { color: #00796B; font-size: 2rem; margin-bottom: 30px; }
+    .skills-bubbles { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .skill {
+      background: #00796B;
+      color: #231F20;
+      padding: 12px 20px;
+      border-radius: 30px;
       font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pop 1s ease forwards;
     }
-
-    .footer {
+    .skill:hover { transform: scale(1.15); box-shadow: 0 10px 25px rgba(0,121,107,0.5); }
+    @keyframes pop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .certificates-section { margin-top: 80px; text-align: center; }
+    .certificates-section h3 { color: #00796B; font-size: 2rem; margin-bottom: 30px; }
+    .certificates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; justify-items: center; }
+    .certificate-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 20px;
       text-align: center;
-      margin-top: auto;
-      padding: 20px 0;
-      color: #4a148c;
-      font-weight: 600;
+      border: 1px solid #00796B;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
+    .certificate-card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 15px 40px rgba(0,121,107,0.5); border-color: #009688; }
+    .certificate-card img { width: 100%; max-width: 200px; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+    .certificate-card p { margin-top: 8px; color: #66b2a6; font-weight: 600; }
+    .interests { margin-top: 80px; background: rgba(255,255,255,0.05); border: 1px solid #00796B; border-radius: 20px; padding: 40px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); animation: fadeUp 1.4s ease; }
+    .interests h3 { color: #66b2a6; font-size: 1.8rem; margin-bottom: 20px; text-align: center; }
+    .interests p { line-height: 1.8; font-size: 1.05rem; text-align: center; color: #dcdcdc; }
+    .footer { text-align: center; margin-top: 100px; padding: 20px 0; color: #66b2a6; font-weight: 600; background: rgba(35,31,32,0.9); border-top: 1px solid #00796B; }
   </style>
 </head>
+
 <body>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+
   <header class="header">
-    <div class="container">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
       <a class="brand" href="index.html">
         <div class="logo-bubble">V</div>
         <div class="brand-text">
@@ -168,73 +142,84 @@
   </header>
 
   <main class="container">
-    <section class="section about-intro">
+    <section class="about-intro">
       <h2>About Me</h2>
-      <p>Hi! I’m <span style="color:#ff69b4;font-weight:600;">Varsitha</span> — a creative and detail-oriented web developer 
-      from Trichy,Tamil Nadu, India. I specialize in building modern, responsive, and user-friendly websites that combine clean 
-      design with smooth functionality. I love turning ideas into interactive experiences that people enjoy using.</p>
+      <p>Hey there! I'm <span style="color:#00796B;font-weight:600;">Varsitha</span> — a passionate web developer from Tamil Nadu, India. I craft creative, responsive, and user-friendly digital experiences using modern technologies. My aim is to blend creativity with logic to bring digital ideas to life beautifully ✨.</p>
     </section>
 
-    <section class="section about-quick">
-      <div class="about-grid">
-        <div>
-          <h3>Quick Facts</h3>
-          <ul>
-            <li>💻 Passionate about front-end and UI/UX development</li>
-            <li>🎯 Interested in full-stack & cross-platform apps</li>
-            <li>🚀 Constant learner with hands-on project experience</li>
-            <li>💡 Believes in elegant design and user-first development</li>
-          </ul>
+    <section class="info-section">
+      <div class="info-card">
+        <h3>🎓 Education</h3>
+        <p><strong>B.E. Computer Science & Engineering</strong><br>
+        <em>Sri Shakthi Institute of Engineering and Technology</em><br>
+        2023 – 2027<br><br>
+        Building expertise in software design, full-stack development, and mobile app creation.</p>
+      </div>
+      <div class="info-card">
+        <h3>🚀 Highlights</h3>
+        <ul>
+          <li>Created a Handloom eCommerce React app with cart integration.</li>
+          <li>Developed a Flutter Alarm App with puzzle-based alarms.</li>
+          <li>Designed a Tamil Nadu Tourism MERN web portal.</li>
+          <li>Won UI/UX mini-hackathons and design workshops.</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>💡 Quick Facts</h3>
+        <ul>
+          <li>Frontend lover & creative thinker.</li>
+          <li>UI/UX enthusiast and full-stack learner.</li>
+          <li>Enjoys challenges that push creativity.</li>
+          <li>Believes in design that feels alive!</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="skills-section">
+      <h3>My Skills</h3>
+      <div class="skills-bubbles">
+        <div class="skill">HTML / CSS / JS</div>
+        <div class="skill">React.js</div>
+        <div class="skill">Flutter & Dart</div>
+        <div class="skill">Node.js / Express</div>
+        <div class="skill">PHP / MySQL</div>
+        <div class="skill">UI / UX Design</div>
+        <div class="skill">Figma</div>
+        <div class="skill">Canva</div>
+        <div class="skill">Git / GitHub</div>
+      </div>
+    </section>
+
+    <section class="certificates-section">
+      <h3>My Certificates 🎓</h3>
+      <div class="certificates-grid">
+        <div class="certificate-card">
+          <img src="MHTechin.jpg" alt="MHTechin Certificate">
+          <p>MHTechin</p>
         </div>
-        <div>
-          <h3>Education</h3>
-          <p><strong>B.E. Computer Science and Engineering</strong><br>
-          <em>Sri Shakthi Institute of Engineering and Technology, Coimbatore</em><br>
-          (2023 – 2027)</p>
-          <p>Focused on software design, data structures, and mobile development.</p>
+        <div class="certificate-card">
+          <img src="Buildfolio.jpg" alt="Buildfolio Certificate">
+          <p>Buildfolio</p>
+        </div>
+        <div class="certificate-card">
+          <img src="CodingRound.jpg" alt="Coding Round Certificate">
+          <p>Coding Round</p>
+        </div>
+        <div class="certificate-card">
+          <img src="Atos Srijan.jpg" alt="Atos Srijan Certificate">
+          <p>Atos Srijan</p>
         </div>
       </div>
     </section>
 
-    <section class="section skills-compact">
-      <h3>Skills</h3>
-      <div class="skills-grid">
-        <div class="skill-card">HTML / CSS / JS</div>
-        <div class="skill-card">React.js</div>
-        <div class="skill-card">Flutter & Dart</div>
-        <div class="skill-card">PHP / MySQL</div>
-        <div class="skill-card">Node.js / Express</div>
-        <div class="skill-card">UI / UX Design</div>
-        <div class="skill-card">Figma & Canva</div>
-        <div class="skill-card">Git / GitHub</div>
-      </div>
-    </section>
-
-    <section class="section achievements">
-      <h3>Highlights</h3>
-      <ul>
-        <li>🏆 Created a <strong>Handloom eCommerce Website</strong> using React & Bootstrap.</li>
-        <li>📱 Built a <strong>Flutter Alarm App</strong> with background services and notifications.</li>
-        <li>🌐 Developed a <strong>Tamil Nadu Tourism Portal</strong> with booking and feedback features.</li>
-        <li>💼 Participated in multiple UI/UX design workshops and hackathons.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h3>Interests</h3>
-      <p>Apart from coding, I love baking 🍰, sketching 🎨, exploring tech innovations, and creating minimal digital designs. 
-      I also enjoy experimenting with new tools that improve workflow and productivity.</p>
-    </section>
-
-    <section class="section">
-      <h3>Let’s Connect</h3>
-      <p>I’m always excited to collaborate on creative projects or internships that challenge me to grow. 
-      You can <a href="contact.html">reach out here</a> — let’s build something amazing together!</p>
+    <section class="interests">
+      <h3>Beyond Code 💫</h3>
+      <p>Outside of development, I’m a creative soul! I love baking 🍰, sketching 🎨, exploring aesthetic web designs, and discovering tools that enhance creativity. My dream is to merge art and technology to create digital magic that inspires others 🌷.</p>
     </section>
   </main>
 
   <footer class="footer">
-    © Portfolio • Crafted with love 💜
+    © 2025 Varsitha • Designed with Care
   </footer>
 </body>
 </html>
