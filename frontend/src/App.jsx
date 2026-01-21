@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import State from "./hooks/State"
+import Effects from "./hooks/Effects"
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/State" element={<State/>}/>
+        <Route path="/Effects" element={<Effects/>}/>
       </Routes>
     </Router>
   );

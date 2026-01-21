@@ -8,6 +8,7 @@ function Home() {
       <ul>
         <li>
           <Link to="/State">usestate</Link>
+          <Link to="/Effects">useeffect</Link>
         </li>
       </ul>
     </div>
