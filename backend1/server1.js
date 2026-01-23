@@ -1,26 +1,44 @@
-const express=require('express')
-const app=express()
-const dotenv= require('dotenv');
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
-app.use(express.json())
-mongoose=require('mongoose')
+const app = express();
+
+/* ✅ JSON parser (safe) */
+app.use(express.json({ strict: false }));
+
+/* ✅ Log every request (TEMP – helps debug) */
+app.use((req, res, next) => {
+    console.log(req.method, req.url, req.headers['content-type']);
+    next();
+});
+
+/* ✅ MongoDB */
 mongoose.connect(process.env.MONGO_URI)
-.then(()=>{console.log('Connected to MongoDB');})
-.catch((err)=>{console.log('Error connecting to MongoDB',err);});
-app.use('/auth',require('./routes/authRoutes'))
-app.use('/tasks',require('./routes/taskRoutes'))
-const port=300
-app.listen(port,()=>{
-    console.log('server is running on port '+port);
-})
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
 
+/* ✅ Routes */
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/task', require('./routes/taskRoutes'));
 
-app.get('/api',(req,res)=>{
+/* ✅ Test route (GET only) */
+app.get('/api', (req, res) => {
     res.send('hi from madhu');
-})
+});
 
-app.post('/api',(req,res)=>{
-    res.send('post request received');
-})
+/* ✅ JSON error handler */
+app.use((err, req, res, next) => {
+    if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+        return res.status(400).json({ message: "Invalid or empty JSON body" });
+    }
+    next();
+});
+
+/* ✅ Server */
+const port = 3000;
+app.listen(port, () => {
+    console.log('server is running on port ' + port);
+});
