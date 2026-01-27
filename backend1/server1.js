@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors= require('cors');
 
 dotenv.config();
-
 const app = express();
 
 /* ✅ JSON parser (safe) */
@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     console.log(req.method, req.url, req.headers['content-type']);
     next();
 });
-
+app.use(cors());
 /* ✅ MongoDB */
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected'))
