@@ -9,6 +9,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Service from './pages/Service'
 import Navbar from './components/Navbar'
+import Products from './pages/Products'
+import ProductDetails from './pages/ProductDetails'
 const App = () => {
   return (
     <>
@@ -18,6 +20,8 @@ const App = () => {
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/service' element={<Service/>}/>
+        <Route path='/products' element={<Products/>}/>
+        <Route path='/products/:id' element={<ProductDetails/>}/>
       </Routes>    
       {/* <div>App</div>
     <Profile name="Varsitha" age={20} skills={["HTML","CSS","JAVASCRIPT"]}/>
